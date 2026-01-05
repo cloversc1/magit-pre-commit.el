@@ -63,6 +63,10 @@
   "Whether to automatically show the pre-commit buffer on failure."
   :type 'boolean)
 
+(defcustom magit-pre-commit-transient-prefix "@"
+  "The key to trigger the pre-commit transient from within Magit."
+  :type 'string)
+
 ;;; --- Internal Variables ---
 
 (defvar magit-pre-commit--process nil
@@ -364,10 +368,10 @@ If HOOK is provided, run only that hook."
 (defun magit-pre-commit--setup ()
   "Set up magit-pre-commit integration."
   ;; Add keybinding to magit-mode-map for direct access from status buffer
-  (define-key magit-mode-map "@" #'magit-pre-commit)
+  (define-key magit-mode-map magit-pre-commit-transient-prefix #'magit-pre-commit)
   ;; Add to magit-dispatch for discoverability
   (transient-insert-suffix 'magit-dispatch "!"
-    '("@" "Pre-commit" magit-pre-commit :if magit-pre-commit-available-p))
+    '(magit-pre-commit-transient-prefix "Pre-commit" magit-pre-commit :if magit-pre-commit-available-p))
   ;; Add status section hook
   (magit-add-section-hook 'magit-status-sections-hook
                           #'magit-pre-commit--status-insert-section
@@ -377,9 +381,9 @@ If HOOK is provided, run only that hook."
 (defun magit-pre-commit--teardown ()
   "Remove magit-pre-commit integration."
   ;; Remove keybinding from magit-mode-map
-  (define-key magit-mode-map "@" nil)
+  (define-key magit-mode-map magit-pre-commit-transient-prefix nil)
   ;; Remove from magit-dispatch
-  (transient-remove-suffix 'magit-dispatch "@")
+  (transient-remove-suffix 'magit-dispatch magit-pre-commit-transient-prefix)
   ;; Remove status section hook
   (remove-hook 'magit-status-sections-hook #'magit-pre-commit--status-insert-section))
 
